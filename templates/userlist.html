@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+
+
+<h2>Here's other users</h2>
+    <ul>
+    {% for friend in userlist %}
+        <h4>{{friend[1]}}&#09{{friend[2]}}<a href="{{url_for('add_friends',values=friend[3])}}">Add as Friend</a></h4>
+    {% endfor %}
+    </ul>
+
+      <!--<h1>Friend Added!</h1>
+      <ul><li><a href='/'>Home</a></li></ul>-->
+
+</html>

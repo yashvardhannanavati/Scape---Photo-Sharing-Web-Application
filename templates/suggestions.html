@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Here's your suggestions!</title>
+</head>
+<body>
+<center><a href='/'>Home</a></center><br><br>
+
+
+{% if suggestions %}
+<h3>Here's your recommendations !</h3>
+    {% for t in suggestions%}
+        <center><h5>{{t}}</h5></center>
+    {% endfor %}
+{% endif %}
+<br><br>
+
+</body>
+</html>

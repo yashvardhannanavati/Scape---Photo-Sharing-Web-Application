@@ -1,0 +1,52 @@
+<!doctype html>
+<ul>
+<li><a href="{{url_for('upload_file',values=album_id)}}">Upload a photo</a> </li> 
+<li><a href='/logout'>Logout</a></li>
+<li><a href='/'>Home</a></li>
+</ul>
+
+{% if photos %}
+<h2>Here's your photos !</h2>
+    <ul>
+    {% for photo in photos %}
+    	<center><h3>{{photo[2]}}</h3></center>
+        <center><img  src='data:image/png;base64, {{photo[0]}}' width="40%"/></center>
+        <form method="post" action="{{url_for('delete_photos',values=album_id, values2 = photo[1])}}">
+        	<center><input type="submit" value="Delete Above Photo" /></center>
+        </form><br><br>
+        <form method="post" action="{{url_for('likephoto', values = photo[1])}}">
+        	<center><input type="submit" value="Like" /></center>
+        </form>
+        <form method="post" action="{{url_for('showuserslikes', values = photo[1])}}">
+        	<center><input type="submit" value="Show People who liked and total likes" /></center>
+        </form><br><br>        
+        <form method="post" action="{{url_for('showcomments', values2 = photo[1])}}">
+        	<center><input type="submit" value="show comments" /></center>
+        </form><br><br>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+{% if display %}
+<h2>Here's your photos !</h2>
+    <ul>
+    {% for photo in display %}
+    	<center><h3>{{photo[2]}}</h3></center>
+        <center><img  src='data:image/png;base64, {{photo[0]}}' width="40%"/></center>
+        <form method="post" action="{{url_for('likephoto', values = photo[1])}}">
+        	<center><input type="submit" value="Like" /></center>
+        </form>
+        <form method="post" action="{{url_for('showuserslikes', values = photo[1])}}">
+        	<center><input type="submit" value="Show People who liked and total likes" /></center>
+        </form><br><br>
+        <form method="post" action="{{url_for('addcomment',values2 = photo[1])}}">
+        	<center><label for="comments">Comment:</label></center>
+            <center><input type="text" name="comment" /></center>
+        	<center><input type="submit" value="Postcomment" /></center>
+        </form><br><br>
+        <form method="post" action="{{url_for('showcomments', values2 = photo[1])}}">
+        	<center><input type="submit" value="show comments" /></center>
+        </form><br><br>
+    {% endfor %}
+    </ul>
+{% endif %}

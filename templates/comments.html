@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+    <title>See all photos from a tag!</title>
+</head>
+<body>
+<center><a href='/'>Home</a></center>
+
+{% if display %}
+<h2>Comments from registered users !</h2>
+    <ul>
+    {% for comment in display %}
+    	<center><h3>{{comment[0]}}  {{comment[1]}} : {{comment[2]}} {{comment[3]}} </h3></center>	
+    {% endfor %}
+    </ul>
+{% endif %}
+
+{% if anon %}
+<h2>Comments from Anonymous users!</h2>
+    <ul>
+    {% for comment in anon %}
+    	<center><h3>{{comment[0]}}  {{comment[1]}} : AnonymousUser  </h3></center>	
+    {% endfor %}
+    </ul>
+{% endif %}
+
+
+
+</body>
+</html>

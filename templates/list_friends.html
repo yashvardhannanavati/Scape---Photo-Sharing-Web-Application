@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+<h2>Here's your friends</h2>
+    <center><a href='/profile'>Profile</a></center>
+
+    <ul>
+    {% for friend in friendlist %}
+        <h4>{{friend[0]}}&#09&#09 - {{friend[1]}}&#09{{friend[2]}}</h4>
+    {% endfor %}
+    </ul>
+    <br> <br>
+      
+
+
+</html>

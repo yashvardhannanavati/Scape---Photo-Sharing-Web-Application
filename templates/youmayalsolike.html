@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>You May Also Like212</title>
+</head>
+<body>
+<center><a href='/'>Home</a></center>
+
+{% if display %}
+<h2>Here's photos you may like !</h2>
+    <ul>
+    {% for photo in display %}
+    	<center><h3>{{photo[1]}}</h3></center>
+    	<center><img  src='data:image/png;base64, {{photo[0]}}' width="40%"/></center>
+        <form method="post" action="{{url_for('likephoto', values = photo[2])}}">
+        	<center><input type="submit" value="Like" /></center>
+        </form>
+        <form method="post" action="{{url_for('showuserslikes', values = photo[2])}}">
+        	<center><input type="submit" value="Show People who liked and total likes" /></center>
+        </form><br><br>
+    	<form method="post" action="{{url_for('addcomment',values2 = photo[2])}}">
+        	<center><label for="comments">Comment:</label></center>
+            <center><input type="text" name="comment" /></center>
+        	<center><input type="submit" value="Postcomment" /></center>
+        </form><br><br>        
+        <form method="post" action="{{url_for('showcomments', values2 = photo[2])}}">
+        	<center><input type="submit" value="show comments" /></center>
+        </form><br><br>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+
+
+
+</body>
+</html>

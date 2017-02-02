@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Brilliant Webpage!</title>
+<h1>Welcome!</h1>
+</head>
+<body>
+	
+	{% if data and query%}
+	<h4>Here's the data for: {{query}}!</h4>
+	<ul>
+		{% for row in data %}
+			<li>
+			{% for item in row %} 
+			[{{item}}]
+			{% endfor %}
+			</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+
+	{% if query and error %}
+		<p> There was an error with the query: {{query}} </p>
+	{% endif %}
+<a href="/search/">Search</a>
+</body>
+</html>

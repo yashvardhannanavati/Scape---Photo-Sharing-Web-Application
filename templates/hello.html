@@ -1,0 +1,62 @@
+<!-- author ben lawson (balawson@bu.edu) -->
+<!doctype html>
+{% if message %}
+  <h4>{{message}}!</h4>
+{% endif %}
+<title>Welcome to Scape!</title>
+{% if name %}
+  <h1><u> Welcome to Scape {{ name }}!</u></h1>
+{% endif %}
+
+{% if message is none %}
+  <h3>You should <a href='/login'>login!</a></h3>
+{% else %}
+  <h3> Go to <a href='/profile'>profile?</a></h3>
+{% endif %}
+
+<!--<h3><a href='/upload'>Upload a photo</a></h3>-->
+<h2> Accessible to all !</h2><br>
+<h3><a href='/showall'> Show all Photos !</a></h3>
+<h3><a href = '/top10users'> See top 10 users</a></h3>
+<h3><a href = '/search'> Search</a></h3>
+<h3><a href = '/bytagsgen'> See all photos by tags</a></h3>
+<h3><a href='/bypopulartags'>See photos by popular tags</a></h3><br><br>
+
+
+<h2> Accessible only to Registered Users!</h2><br>
+<h3><a href = '/bytagsmy'>See my photos by tags(Login required!)</a></h3>
+<h3><a href = '/youmaylike'>You may also Like!</a></h3> 
+<h3><a href = '/add_albums'> Add an album</a></h3>
+<h3><a href='/showuserlist'>Add Friends</a></h3>
+<h3><a href='/listfriends'>Show Friends</a></h3>
+<h3><a href='/logout'>Logout</a></h3>
+<h3><a href='/'>Home</a></h3>
+</ul>
+
+<!--{% if photos %}
+<h2>Here's your photos</h2>
+    <ul>
+    {% for photo in photos %}
+    	<center><h3>{{photo[2]}}</h3></center>
+        <center><img  src='data:image/png;base64, {{photo[0]}}' width="40%"/></center>
+    {% endfor %}
+    </ul>
+{% endif %}-->
+
+<!-- This prints list of albums for a user -->
+{% if albums %}
+<center><h3> Here are your Albums ! </h3></center>
+	<ul>
+    {% for album in albums %}
+        <center><a href="{{url_for('showPhotos',values=album[0])}}">{{album[1]}}</a></center>
+        <form method="post" action="{{url_for('delete_album',values=album[0])}}">
+        	<center><input type="submit" value="Delete Above Album" /></center>
+        </form> 
+    {% endfor %}
+    </ul>
+{% else %}
+<center><h3>Welcome!</h3></center>
+
+{% endif %}
+
+

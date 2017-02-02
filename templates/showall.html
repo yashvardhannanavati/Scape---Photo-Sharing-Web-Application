@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>All Albums And Photos!</title>
+</head>
+<body>
+
+{% if albums %}
+<center><h3> Here are your Albums ! </h3></center>
+	<ul>
+    {% for album in albums %}
+        <center><a href="{{url_for('showallPhotos',values=album[0])}}">{{album[1]}}</a></center>
+    {% endfor %}
+    </ul>
+{% else %}
+<center><h3>Welcome!</h3></center>
+
+{% endif %}
+
+
+{% if photos %}
+<h2>Here's your photos !</h2>
+    <ul>
+    {% for photo in photos %}
+    	<center><h3>{{photo[2]}}</h3></center>
+        <center><img  src='data:image/png;base64, {{photo[0]}}' width="40%"/></center>
+        <form method="post" action="{{url_for('likephoto', values = photo[1])}}">
+        	<center><input type="submit" value="Like" /></center>
+        </form>
+        <form method="post" action="{{url_for('showuserslikes', values = photo[1])}}">
+        	<center><input type="submit" value="Show People who liked and total likes" /></center>
+        </form><br><br>
+        <form method="post" action="{{url_for('addcomment',values2 = photo[1])}}">
+        	<center><label for="comments">Comment:</label></center>
+            <center><input type="text" name="comment" /></center>
+        	<center><input type="submit" value="Postcomment" /></center>
+        </form><br><br>
+        <form method="post" action="{{url_for('showcomments', values2 = photo[1])}}">
+        	<center><input type="submit" value="show comments" /></center>
+        </form><br><br>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+
+</body>
+</html>
+
