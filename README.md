@@ -1,30 +1,33 @@
 # Scape---Photo-Sharing-Website
 
-Description:
+The project uses Flask which is a micro web framework written in Python along with MySQL and Python to implement a photo sharing website. The functionalities are quite similar to Flickr! 
+
+
+Description of use-cases:
 A user can have multiple friends and it is stored in the database as a self-relation to the users. A user can post comments on photos. Each comment must be posted by a user and associated with a single user, however a user can post multiple comments. Each Comment is associated with exactly one photo. A photo can have multiple comments. A photo has total participation in relationship with the users. Photos have a weak entity called tags which contain the names of all the tags associated with that photo. Two photos can have the same tag.  A photo is always contained in an album. An album can have multiple photos. Similarly, A user can have multiple albums but an album must be associated to one or more users. 
 
 Relational Schema:
 
-Users
+Users :
 user_id	first_name	last_name	gender	email 	password	date_of_birth	hometown
 
-Albums
+Albums :
 album_id	name	date_of_creation	owner(user)_id
 
-Photos
+Photos :
 photo_id	no_of_likes	data	caption	user_id	date	album_id
 
-Comments
+Comments :
 comment_id	comment_date	text	photo_id	owner_id
 
-Friends_with
+Friends_with :
 friend(user)_id	user_id
 
-Tags
+Tags :
 tag_name	photo_id
 
 
-Likes
+Likes :
 user_id	photo_id
 
 
