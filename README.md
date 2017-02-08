@@ -1,6 +1,6 @@
 # Scape---Photo-Sharing-Website
 
-The project uses Flask which is a micro web framework written in Python along with MySQL and Python to implement a photo sharing website. The functionalities are quite similar to Flickr! 
+The project uses Flask on Python which is a micro web framework written in Python along with MySQL database to implement a photo sharing website. The functionalities are quite similar to Flickr! 
 
 
 Description of use-cases:
