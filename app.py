@@ -1,6 +1,6 @@
 ######################################
-# author ben lawson <balawson@bu.edu> 
-# Edited by: Craig Einstein <einstein@bu.edu>
+# basic framework author ben lawson <balawson@bu.edu> 
+# Edited by: Yash Nanavati <yashn@bu.edu>
 ######################################
 # Some code adapted from 
 # CodeHandBook at http://codehandbook.org/python-web-application-development-using-flask-and-mysql/
@@ -27,7 +27,7 @@ app.secret_key = '2003ub313'  # Change this!
 
 #These will need to be changed according to your creditionals
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'bostonYN@2701'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'enter your owm password'
 app.config['MYSQL_DATABASE_DB'] = 'scape'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
